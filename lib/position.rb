@@ -14,5 +14,4 @@ class Position
     @x_coordinate += x
     @y_coordinate += y
   end
-
 end

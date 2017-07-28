@@ -86,7 +86,7 @@ class Simulator
 
   def move_position(x_value, y_value, table)
     new_position = Position.new(x_value, y_value)
-    puts "Invalid move in position. #{@table.position_to_s}" unless table.valid_change_in_position new_position
+    # puts "Invalid move in position. #{@table.position_to_s}" unless table.valid_change_in_position new_position
     table.update_pos(new_position) if table.valid_change_in_position new_position
   end
 

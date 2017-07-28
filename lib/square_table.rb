@@ -14,7 +14,8 @@ class SquareTable
   end
 
   def valid_position(position)
-    !((position.x_coordinate < 0 || position.x_coordinate > rows) || (position.y_coordinate < 0 || position.y_coordinate > columns))
+    !((position.x_coordinate < 0 || position.x_coordinate > rows) ||
+        (position.y_coordinate < 0 || position.y_coordinate > columns))
   end
 
   def valid_change_in_position(change_position)
