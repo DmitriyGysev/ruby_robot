@@ -1,4 +1,6 @@
 class Position
+  attr_accessor :x_coordinate, :y_coordinate
+
   def initialize(x = 0, y = 0)
     @x_coordinate = x
     @y_coordinate = y
@@ -13,5 +15,4 @@ class Position
     @y_coordinate += y
   end
 
-  attr_accessor :x_coordinate, :y_coordinate
 end

@@ -14,8 +14,7 @@ class SquareTable
   end
 
   def valid_position(position)
-    !((position.x_coordinate < 0 || position.x_coordinate > rows) ||
-        (position.y_coordinate < 0 || position.y_coordinate > columns))
+    !((position.x_coordinate < 0 || position.x_coordinate > rows) || (position.y_coordinate < 0 || position.y_coordinate > columns))
   end
 
   def valid_change_in_position(change_position)
@@ -29,8 +28,8 @@ class SquareTable
     @position.to_s
   end
 
-  def update(position)
-    @position.update(position.x_coordinate, position.y_coordinate) if valid_position(position)
+  def update_pos(position)
+    @position.update(position.x_coordinate, position.y_coordinate) if valid_change_in_position(position)
   end
 
   attr_reader :rows, :columns, :position
