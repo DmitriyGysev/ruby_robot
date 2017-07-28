@@ -47,6 +47,7 @@ class Simulator
   end
 
   def report
+    return nil unless @table.placed?
     "#{@table.position_to_s}, #{current_robot}" unless @table.position.nil? && current_robot.orientation.nil?
   end
 
@@ -62,6 +63,7 @@ class Simulator
 
   def move
     fail 'Robot not found' if current_robot.nil?
+    return nil unless @table.placed?
 
     case current_robot.orientation
     when :north
