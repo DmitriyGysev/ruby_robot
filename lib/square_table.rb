@@ -10,20 +10,18 @@ class SquareTable
   end
 
   def placed?
-    @position.nil? ? false : true
+    !@position.nil?
   end
 
   def valid_position(position)
-    if (position.x_coordinate < 0 || position.x_coordinate > rows) ||
-        (position.y_coordinate < 0 || position.y_coordinate > columns)
-      false
-    else
-      true
-    end
+    !((position.x_coordinate < 0 || position.x_coordinate > rows) ||
+        (position.y_coordinate < 0 || position.y_coordinate > columns))
   end
 
-  def valid_change_in_position (change_position)
-    new_position = Position.new change_position.x_coordinate+@position.x_coordinate, change_position.y_coordinate+@position.y_coordinate
+  def valid_change_in_position(change_position)
+    x = change_position.x_coordinate + @position.x_coordinate
+    y = change_position.y_coordinate + @position.y_coordinate
+    new_position = Position.new(x, y)
     valid_position new_position
   end
 

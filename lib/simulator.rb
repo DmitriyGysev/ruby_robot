@@ -10,15 +10,13 @@ class Simulator
     @robots = []
   end
 
-  def execute(line, robot_index=0)
+  def execute(line, robot_index = 0)
     return nil if line.strip.empty?
     tokens = line.split(/\s+/)
     operator = tokens.first
     arguments = tokens.last
     @current_robot_index = robot_index
-    if @robots.empty? && @robots.size == robot_index
-    @robots << Robot.new
-    end
+    @robots.empty? && @robots.size == robot_index && @robots << Robot.new
     execute_command(operator, arguments)
   end
 
@@ -35,7 +33,7 @@ class Simulator
     when 'RIGHT'
       right
     else
-      'Invalid command line agrument #{command}'
+      "Invalid command line argument #{operator}"
     end
   end
 
@@ -49,7 +47,7 @@ class Simulator
   end
 
   def report
-    @table.position_to_s + ',' + current_robot.to_s unless @table.position.nil? && current_robot.orientation.nil?
+    "#{@table.position_to_s}, #{current_robot}" unless @table.position.nil? && current_robot.orientation.nil?
   end
 
   def left
@@ -88,8 +86,8 @@ class Simulator
 
   def move_position(x_value, y_value, table)
     new_position = Position.new(x_value, y_value)
-    fail 'Invalid move in position. #' unless table.valid_change_in_position new_position
-    table.update(new_position)
+    # puts "Invalid move in position. #{new_position}" unless table.valid_change_in_position new_position
+    table.update(new_position) if table.valid_change_in_position new_position
   end
 
   def place_robot(x_coordinate, y_coordinate, orientation)

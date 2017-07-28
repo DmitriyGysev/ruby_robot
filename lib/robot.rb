@@ -26,7 +26,7 @@ class Robot
     if @directions.include?(new_orientation)
       @orientation = new_orientation
     else
-      fail 'Invalid orientation #{new_orientation}'
+      fail "Invalid orientation #{new_orientation}"
     end
     nil
   end

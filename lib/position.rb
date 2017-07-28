@@ -5,7 +5,7 @@ class Position
   end
 
   def to_s
-    @x_coordinate.to_s + ',' + @y_coordinate.to_s
+    "#{@x_coordinate}, #{@y_coordinate}"
   end
 
   def update(x, y)
