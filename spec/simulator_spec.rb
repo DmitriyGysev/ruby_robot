@@ -43,7 +43,7 @@ describe 'Simulator' do
     context 'with move command' do
       describe 'before place command' do
         it 'raise an exception error' do
-          expect { simulator.execute('MOVE') }.to raise_error RuntimeError
+          expect(simulator.execute('MOVE')).to eq nil
         end
       end
     end
