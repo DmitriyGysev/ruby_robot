@@ -41,7 +41,7 @@ class Simulator
     tokens = arguments.split(/,/)
     x = tokens[0].to_i
     y = tokens[1].to_i
-    orientation = tokens[2].downcase.to_sym
+    orientation = tokens[2].to_s.downcase.to_sym
     place_robot(x, y, orientation)
     nil
   end
@@ -88,7 +88,7 @@ class Simulator
 
   def move_position(x_value, y_value, table)
     new_position = Position.new(x_value, y_value)
-    puts "Invalid move in position. #{@table.position_to_s}" unless table.valid_change_in_position new_position
+    logger "Invalid move in position. #{@table.position_to_s}" unless table.valid_change_in_position new_position
     table.update_pos(new_position) if table.valid_change_in_position new_position
   end
 
